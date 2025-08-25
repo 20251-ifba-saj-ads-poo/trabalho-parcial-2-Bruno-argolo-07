@@ -1,4 +1,4 @@
-public class ItemCardapio {
+public class ItemCardapio extends AbstractModel {
     private String nome;
     private String descricao;
     private double preco;
@@ -15,7 +15,6 @@ public class ItemCardapio {
         return nome + " - " + descricao + " - R$ " + preco;
     }
 
-    
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
