@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Categoria {
+public class Categoria extends AbstractModel {
     private String nome;
-    private List<ItemCardapio> itens;
+    private List<ItemCardapio> itens = new ArrayList<>();
 
     public Categoria(String nome) {
         this.nome = nome;
-        this.itens = new ArrayList<>();
     }
 
     public void adicionarItem(ItemCardapio item) {
