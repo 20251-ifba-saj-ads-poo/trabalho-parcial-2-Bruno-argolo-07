@@ -1,24 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class Cliente {
+public class Cliente extends AbstractModel {
     private String nome;
     private String email;
     private String telefone;
     private String senha;
-    private List<Pedido> pedidos;
+    private List<Pedido> pedidos = new ArrayList<>();
 
     public Cliente(String nome, String email, String telefone, String senha) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.senha = senha;
-        this.pedidos = new ArrayList<>();
-    }
-
-    public void cadastrar() {
-        System.out.println("Cliente cadastrado: " + this.nome);
     }
 
     public boolean autenticar(String email, String senha) {
@@ -33,7 +27,7 @@ public class Cliente {
         return pedidos;
     }
 
-    // Getters e Setters
+   
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
@@ -46,3 +40,4 @@ public class Cliente {
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
 }
+
