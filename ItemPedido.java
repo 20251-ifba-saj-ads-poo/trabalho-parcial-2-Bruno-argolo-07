@@ -1,4 +1,4 @@
-public class ItemPedido {
+public class ItemPedido extends AbstractModel {
     private ItemCardapio item;
     private int quantidade;
 
@@ -10,7 +10,6 @@ public class ItemPedido {
     public double getSubtotal() {
         return item.getPreco() * quantidade;
     }
-
 
     public ItemCardapio getItem() { return item; }
     public void setItem(ItemCardapio item) { this.item = item; }
