@@ -1,31 +1,24 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+public class Pedido extends AbstractModel {
     private int numero;
     private Cliente cliente;
-    private List<ItemPedido> itens;
+    private List<ItemPedido> itens = new ArrayList<>();
     private double total;
 
     public Pedido(int numero, Cliente cliente) {
         this.numero = numero;
         this.cliente = cliente;
-        this.itens = new ArrayList<>();
-        this.total = 0.0;
     }
 
     public void adicionarItem(ItemCardapio item, int quantidade) {
-        ItemPedido itemPedido = new ItemPedido(item, quantidade);
-        itens.add(itemPedido);
+        itens.add(new ItemPedido(item, quantidade));
         calcularTotal();
     }
 
     public double calcularTotal() {
-        total = 0.0;
-        for (ItemPedido item : itens) {
-            total += item.getSubtotal();
-        }
+        total = itens.stream().mapToDouble(ItemPedido::getSubtotal).sum();
         return total;
     }
 
@@ -37,7 +30,7 @@ public class Pedido {
         System.out.println("Pedido #" + numero + " confirmado pelo cliente.");
     }
 
-    
+   
     public int getNumero() { return numero; }
     public Cliente getCliente() { return cliente; }
     public List<ItemPedido> getItens() { return itens; }
